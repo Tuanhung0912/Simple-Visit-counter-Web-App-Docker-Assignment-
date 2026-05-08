@@ -1,5 +1,6 @@
 const express = require('express');
 const redis = require('redis');
+const process = require('process');
 
 const app = express();
 
@@ -17,6 +18,7 @@ client.connect()
     .catch(console.error);
 
 app.get('/', async (req, res) => {
+    process.exit(0);
     try {
         const visits = await client.get('visits');
         res.send('Number of visits is ' + visits);
