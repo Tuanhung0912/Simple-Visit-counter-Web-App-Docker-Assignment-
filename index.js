@@ -8,7 +8,6 @@ const client = redis.createClient({
     url: 'redis://redis-server:6379'
 });
 
-// Bắt lỗi kết nối nếu có
 client.on('error', err => console.log('Redis Client Error', err));
 
 client.connect()
