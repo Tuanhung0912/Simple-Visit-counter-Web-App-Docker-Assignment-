@@ -4,9 +4,15 @@ services:
     image: 'redis'
     #restart: always
   node-app:
+    # restart policy always: Container will always restart regardless of the exit status. This is useful for services that need to be highly available.
     restart: always
+
+    # Restart policy on-failure: Container will restart only if it exits with a non-zero exit code, indicating a failure. This is useful for services that should only restart when they encounter an error.
     #restart: on-failure
+
+    # Restart policy unless-stopped: Container will restart unless it is explicitly stopped by the user. This is a good option for most applications, as it allows them to recover from crashes while still giving you control over when to stop them.
     #restart: unless-stopped
+    
     build: .
     ports:
       - '4001:8081'
